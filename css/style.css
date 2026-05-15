@@ -1,0 +1,364 @@
+/* ========================================
+   VARIABEL WARNA - Gampang diganti!
+   ======================================== */
+:root {
+  --primary: #6366f1;
+  --primary-dark: #4f46e5;
+  --bg: #f8fafc;
+  --card-bg: #ffffff;
+  --text: #1e293b;
+  --text-muted: #64748b;
+  --border: #e2e8f0;
+  --danger: #ef4444;
+  --success: #22c55e;
+  --food: #f59e0b;
+  --transport: #3b82f6;
+  --fun: #8b5cf6;
+  --custom: #10b981;
+}
+
+/* Dark Mode Variables */
+[data-theme="dark"] {
+  --bg: #0f172a;
+  --card-bg: #1e293b;
+  --text: #f1f5f9;
+  --text-muted: #94a3b8;
+  --border: #334155;
+}
+
+/* ========================================
+   RESET & BASE
+   ======================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* ========================================
+   HEADER
+   ======================================== */
+.app-header {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: white;
+  padding: 1.5rem 1rem;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 12px rgba(99, 102, 241, 0.4);
+}
+
+.app-header h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+/* Tombol Dark Mode di header */
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 480px;
+  margin: 0 auto 1rem;
+}
+
+.btn-theme {
+  background: rgba(255,255,255,0.2);
+  border: none;
+  color: white;
+  padding: 0.4rem 0.8rem;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: background 0.2s;
+}
+.btn-theme:hover {
+  background: rgba(255,255,255,0.3);
+}
+
+/* Kartu saldo */
+.balance-card {
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 1rem 1.5rem;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.balance-label {
+  font-size: 0.85rem;
+  opacity: 0.85;
+  margin-bottom: 0.25rem;
+}
+
+.balance-amount {
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+/* ========================================
+   MAIN LAYOUT
+   ======================================== */
+.app-main {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* ========================================
+   CARD
+   ======================================== */
+.card {
+  background: var(--card-bg);
+  border-radius: 20px;
+  padding: 1.25rem;
+  border: 1px solid var(--border);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.card h2 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--text);
+}
+
+/* ========================================
+   FORM
+   ======================================== */
+.form-group {
+  margin-bottom: 0.875rem;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-bottom: 0.375rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  font-size: 0.95rem;
+  color: var(--text);
+  background: var(--bg);
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: var(--primary);
+}
+
+.error-msg {
+  color: var(--danger);
+  font-size: 0.8rem;
+  margin-bottom: 0.5rem;
+  min-height: 1.2rem;
+}
+
+.btn-primary {
+  width: 100%;
+  padding: 0.875rem;
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.1s, box-shadow 0.2s;
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(99, 102, 241, 0.4);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+/* ========================================
+   CHART
+   ======================================== */
+.chart-container {
+  position: relative;
+  max-width: 280px;
+  margin: 0 auto;
+}
+
+.chart-empty {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  padding: 2rem 0;
+}
+
+/* ========================================
+   TRANSACTION LIST
+   ======================================== */
+.transaction-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-height: 400px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+/* Custom scrollbar */
+.transaction-list::-webkit-scrollbar {
+  width: 4px;
+}
+.transaction-list::-webkit-scrollbar-track {
+  background: var(--bg);
+  border-radius: 4px;
+}
+.transaction-list::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 4px;
+}
+
+.empty-msg {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  padding: 1.5rem 0;
+}
+
+/* Item transaksi */
+.transaction-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  background: var(--bg);
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  transition: transform 0.1s;
+}
+
+.transaction-item:hover {
+  transform: translateX(2px);
+}
+
+/* Indikator warna kategori */
+.category-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.category-dot.Food   { background: var(--food); }
+.category-dot.Transport { background: var(--transport); }
+.category-dot.Fun    { background: var(--fun); }
+.category-dot.Custom { background: var(--custom); }
+
+.transaction-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.transaction-name {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.transaction-category {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.transaction-amount {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--danger);
+  white-space: nowrap;
+}
+
+.btn-delete {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-muted);
+  padding: 0.25rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: color 0.2s, background 0.2s;
+}
+
+.btn-delete:hover {
+  color: var(--danger);
+  background: #fee2e2;
+}
+
+/* ========================================
+   HIGHLIGHT (Optional: spending over limit)
+   ======================================== */
+.transaction-item.over-limit .transaction-amount {
+  color: #dc2626;
+  font-weight: 800;
+}
+.transaction-item.over-limit {
+  border-color: #fca5a5;
+  background: #fff5f5;
+}
+
+/* ========================================
+   SORT BAR (Optional challenge)
+   ======================================== */
+.sort-bar {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.sort-bar label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  align-self: center;
+}
+
+.sort-bar select {
+  padding: 0.35rem 0.75rem;
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  font-size: 0.8rem;
+  background: var(--bg);
+  color: var(--text);
+  cursor: pointer;
+}
